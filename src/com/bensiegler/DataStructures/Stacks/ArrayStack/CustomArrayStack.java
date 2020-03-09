@@ -1,41 +1,11 @@
-package com.bensiegler.DataStructures.Stacks;
+package com.bensiegler.DataStructures.Stacks.ArrayStack;
 
-//////////////////////////////
-//DEFINITIVELY NOT THREAD SAFE
-//////////////////////////////
-
-public class ArrayStack {
-    private static String Class;
-
-
-    public static void main(String[] args)  {
-        CustomStack<String> customStack = new CustomStack<String>(5);
-        customStack.push("hello");
-        customStack.push("why");
-        customStack.push("does my head hurt");
-
-        try{
-            System.out.println(customStack.pop());
-            System.out.println(customStack.pop());
-            customStack.push("HELLO");
-            customStack.push("ANOTHER HI");
-            System.out.println(customStack.peekFirst() + "peek first");
-            System.out.println(customStack.peekLast() + "peek last");
-            customStack.printAll();
-        }catch(EmptyStackException e) {
-            System.out.println(e.getMessage());
-        }
-
-
-    }
-}
-
-class CustomStack<T> {
+public class CustomArrayStack<T> {
     private int readIndex = -1, insertIndex = 0;
     private Object[] stackArray = null;
     private int stackSize;
 
-    CustomStack(int stackSize) {
+    CustomArrayStack(int stackSize) {
         this.stackSize = stackSize;
         stackArray = new Object[stackSize];
     }
@@ -55,7 +25,7 @@ class CustomStack<T> {
         }
     }
 
-    T pop() throws EmptyStackException{
+    T pop() throws EmptyStackException {
         if(stackArray[0] == null) {
             throw new EmptyStackException("the stack is empty. nothing to pop");
         }else {
@@ -75,11 +45,11 @@ class CustomStack<T> {
         Object[] newArray = new Object[stackSize];
 
         for(int i = 0; i < newArray.length - 1; i++) {
-           try {
-               newArray[i]= stackArray[i];
-           }catch(ArrayIndexOutOfBoundsException e) {
-               newArray[i] = null;
-           }
+            try {
+                newArray[i]= stackArray[i];
+            }catch(ArrayIndexOutOfBoundsException e) {
+                newArray[i] = null;
+            }
 
         }
 
@@ -113,8 +83,4 @@ class CustomStack<T> {
     }
 
 }
-
-
-
-
 

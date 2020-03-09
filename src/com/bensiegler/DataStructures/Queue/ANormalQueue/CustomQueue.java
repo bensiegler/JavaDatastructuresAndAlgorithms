@@ -1,29 +1,6 @@
-package com.bensiegler.DataStructures.Queue;
+package com.bensiegler.DataStructures.Queue.ANormalQueue;
 
-public class Exercise_02 {
-    public static void main(String[] args) {
-        CustomQueue<String> queue = new CustomQueue<>();
-        queue.add("1st");
-        queue.add("2nd");
-        queue.add("3rd");
-        queue.add("4th");
-        System.out.println(queue.getSize() + " size");
-        queue.printAll();
-
-        try {
-            System.out.println(queue.remove());
-            System.out.println(queue.peekFirst() + " first");
-            System.out.println(queue.peekLast() + " last");
-
-
-
-        }catch(EmptyQueueException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-}
-
-class CustomQueue<T> {
+public class CustomQueue<T> {
     private Object[] array = new Object[1];
     private int size = 1, lastLocation = -1, writeLocation = 0;
 
@@ -120,11 +97,3 @@ class CustomQueue<T> {
         }
     }
 }
-
-class EmptyQueueException extends Exception {
-
-    EmptyQueueException(String message) {
-        super(message);
-    }
-}
-

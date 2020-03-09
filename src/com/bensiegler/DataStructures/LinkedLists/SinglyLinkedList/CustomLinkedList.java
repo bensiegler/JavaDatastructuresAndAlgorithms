@@ -1,23 +1,6 @@
 package com.bensiegler.DataStructures.LinkedLists.SinglyLinkedList;
-//IMPORTANT: THIS FAILS WHEN A LIST IS CREATED AND ALL ITEMS ARE REMOVED AND THEN AN ITEM IS ADDED AGAIN.
-// TO FIX DEAL WITH NULL IN HEAD.
-public class Exercise_02 {
-    public static void main(String[] args) {
-        CustomLinkedList<String> myList = new CustomLinkedList<>("should be middle");
 
-        myList.addToFront("should be first");
-        myList.addToEnd("should be end");
-
-        int size = myList.getSize();
-        for(int i = 0; i <= size; i++) {
-            System.out.println(myList.pop());
-        }
-
-
-    }
-}
-
-class CustomLinkedList<T> {
+public class CustomLinkedList<T> {
     private Node<T> head = null;
 
     CustomLinkedList(T data) {
@@ -44,13 +27,13 @@ class CustomLinkedList<T> {
         head = newHead;
     }
 
-     T pop() {
-       T data = head.getData();
-       head = head.next;
-       return data;
+    T pop() {
+        T data = head.getData();
+        head = head.next;
+        return data;
     }
 
-     T get(T data) {
+    T get(T data) {
         Node<T> iterator = head;
 
         while(iterator.getData() != data) {
@@ -60,7 +43,7 @@ class CustomLinkedList<T> {
         return iterator.getData();
     }
 
-     T popLast() {
+    T popLast() {
         Node<T> iterator = head,
                 previous = null;
 
@@ -78,7 +61,7 @@ class CustomLinkedList<T> {
 
     }
 
-     int getSize() {
+    int getSize() {
         Node<T> iterator = head;
         int count = 0;
 
@@ -103,23 +86,6 @@ class CustomLinkedList<T> {
 
     Node<T> getHead() {
         return head;
-    }
-
-}
-
-
-class Node<D> {
-    private D data;
-    Node<D> next = null;
-
-    Node(D data) {
-        this.data = data;
-    }
-
-
-
-     D getData() {
-        return data;
     }
 
 }

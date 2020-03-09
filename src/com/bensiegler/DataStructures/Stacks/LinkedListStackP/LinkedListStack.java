@@ -1,4 +1,6 @@
-package com.bensiegler.DataStructures.Stacks;
+package com.bensiegler.DataStructures.Stacks.LinkedListStackP;
+
+import com.bensiegler.DataStructures.Stacks.ArrayStack.EmptyStackException;
 
 public class LinkedListStack<T> {
     private Node<T> head;
@@ -15,7 +17,7 @@ public class LinkedListStack<T> {
     }
 
 
-    public T pop() throws EmptyStackException{
+    public T pop() throws EmptyStackException {
         if(null == head) {
             throw new EmptyStackException("the stack is empty cannot pop");
         }
@@ -51,49 +53,5 @@ public class LinkedListStack<T> {
     }
 }
 
-class Node<T> {
-    private T data;
-    private Node<T> next;
-
-    Node(T data){
-        this.data = data;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    public Node<T> getNext() {
-        return next;
-    }
-
-    public void setNext(Node<T> next) {
-        this.next = next;
-    }
-}
-
-class test {
-    public static void main(String[] args) {
-        LinkedListStack<String> linkedListStack = new LinkedListStack<>();
-
-        linkedListStack.add("Hello");
-        linkedListStack.add("Hey");
-        linkedListStack.add("Goodday");
-
-        try {
-            System.out.println(linkedListStack.pop());
-            System.out.println(linkedListStack.pop());
-            System.out.println(linkedListStack.isEmpty());
 
 
-        }catch(Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-
-    }
-}

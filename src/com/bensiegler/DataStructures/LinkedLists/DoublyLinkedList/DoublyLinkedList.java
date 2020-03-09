@@ -82,54 +82,6 @@ public class DoublyLinkedList<T> {
     }
 }
 
-class Node<T> {
-    private T data;
-    protected Node<T> next, previous;
-
-    public Node(T data, Node<T> next) {
-        this.data = data;
-        this.next = next;
-    }
-
-    public Node(T data) {
-        this.data = data;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public Node getNext() {
-        return next;
-    }
-
-    }
-
-
-class Tester {
-    public static void main(String[] args) {
-        DoublyLinkedList<String> linkedList = new DoublyLinkedList<>();
-
-        linkedList.add("Ben");
-        linkedList.add("Jade");
-        linkedList.add("Isadora");
-
-
-        //System.out.println(linkedList.peek());
-        //linkedList.printAll();
-
-        try{
-            linkedList.remove("Isadora");
-            linkedList.remove("Ben");
-            linkedList.remove("Jade");
-            linkedList.remove("hi");
-            linkedList.add("Joe");
-            linkedList.printAll();
-        }catch(EmptyListException e) {
-            System.out.println(e.getMessage());
-        }catch(NotInListException e) {
-            System.out.println(e.getMessage());
-        }
 
 
 
@@ -137,18 +89,5 @@ class Tester {
 
 
 
-    }
-}
 
-class EmptyListException extends Exception {
-    EmptyListException(String message) {
-        super(message);
-    }
-}
-
-class NotInListException extends Exception {
-    NotInListException(String message) {
-        super(message);
-    }
-}
 

@@ -1,53 +1,9 @@
-package com.bensiegler.DataStructures.HashMap;
-
-public class Exercise_02 {
-    public static void main(String[] args) {
-        CustomHashMap<Integer, Integer> hashMap = new CustomHashMap<>();
-
-
-        hashMap.put(1, 2);
-        hashMap.put(11, 5);
-        hashMap.put(21, 4);
-        hashMap.put(1, 5);
-        hashMap.put(21, 99);
-        hashMap.put(29, 99);
-        hashMap.put(28, 99);
-        hashMap.put(24, 99);
-        hashMap.put(24, 99);
-        hashMap.put(25, 99);
-        hashMap.put(215, 99);
-        hashMap.put(217, 99);
-
-
-        hashMap.delete(217);
-        hashMap.delete(217);
-        System.out.println(hashMap.get(217));
-
-//        for(int i = 0; i < 200; i++) {
-//            hashMap.put(i, i + 1);
-//        }
-//
-//
-//        for(int i = 0; i < 200; i++) {
-//            hashMap.delete(i);
-//        }
-//
-//        for(int i = 0; i < 50; i++) {
-//            hashMap.put(i, i + 1);
-//        }
-//
-//        for(int i = 0; i < 200; i++) {
-//            System.out.println(hashMap.get(i));
-//        }
-//
-    }
-
-}
+package com.bensiegler.DataStructures.HashMap.Exercise_02;
 
 class CustomHashMap<K, V> {
-   private int numAdds = 0, size = 10;
-   private Node[] nodeArray = new Node[10];
-   private boolean imResizing;
+    private int numAdds = 0, size = 10;
+    private Node[] nodeArray = new Node[10];
+    private boolean imResizing;
 
     //what is supposed to happen if we add two identical keys? does it get the same hash?
     public void put(K key, V value) {
@@ -66,14 +22,14 @@ class CustomHashMap<K, V> {
             }
             return;
         }
-            if (nodeArray[index] == null) {
-                nodeArray[index] = new Node<>(key, value);
-            } else {
-                Node<K, V> iterator = (Node<K, V>) nodeArray[index];
-                while (null != iterator.next) {
-                    iterator= iterator.next;
-                }
-                iterator.next = new Node<>(key, value);
+        if (nodeArray[index] == null) {
+            nodeArray[index] = new Node<>(key, value);
+        } else {
+            Node<K, V> iterator = (Node<K, V>) nodeArray[index];
+            while (null != iterator.next) {
+                iterator= iterator.next;
+            }
+            iterator.next = new Node<>(key, value);
 
         }
         if(!imResizing) {
@@ -91,7 +47,7 @@ class CustomHashMap<K, V> {
         }
 
         Node<K, V> n = (Node<K,V>) nodeArray[index];
-        if(n.getValue().equals(key)) {
+        if(n.getKey().equals(key)) {
             return n.getValue();
         }else{
             try {
@@ -130,8 +86,8 @@ class CustomHashMap<K, V> {
                     n = n.next;
                 }
             }catch(NullPointerException e) {
-                    System.out.println("that item is not in the list");
-                    return;
+                System.out.println("that item is not in the list");
+                return;
             }
 
             if(null == n.next.next) {
@@ -192,42 +148,18 @@ class CustomHashMap<K, V> {
             Node<K,V> currentNode = (Node<K,V>) oldArray[i];
 
             try {
-              put(currentNode.getKey(),currentNode.getValue());
+                put(currentNode.getKey(),currentNode.getValue());
 
-              while(currentNode.next != null) {
-                  currentNode = currentNode.next;
-                  put(currentNode.getKey(),currentNode.getValue());
+                while(currentNode.next != null) {
+                    currentNode = currentNode.next;
+                    put(currentNode.getKey(),currentNode.getValue());
 
-              }
+                }
             }catch(NullPointerException e) {
-              //dont do anything move onto next index
-          }
+                //dont do anything move onto next index
+            }
         }
         imResizing = false;
     }
 
-    }
-
-class Node<K, V> {
-    private K key;
-    private V value;
-    Node<K, V> next;
-
-    public void setValue(V value) {
-        this.value = value;
-    }
-
-    Node(K key, V value) {
-        this.key = key;
-        this.value = value;
-    }
-
-    public K getKey() {
-        return key;
-    }
-
-    public V getValue() {
-        return value;
-    }
 }
-
