@@ -1,4 +1,4 @@
-package com.bensiegler.HashMap;
+package com.bensiegler.DataStructures.HashMap;
 
 public class Exercise_02 {
     public static void main(String[] args) {
@@ -109,6 +109,7 @@ class CustomHashMap<K, V> {
     public void delete(K key) {
         int index = key.hashCode() % nodeArray.length;
         checkCapacity();
+
         if(nodeArray[index] == null) {
             System.out.println("that item is not in the list");
             return;
@@ -116,22 +117,29 @@ class CustomHashMap<K, V> {
 
         Node<K, V> n = (Node<K, V>) nodeArray[index];
 
-        if(null == n.next && n.getKey().equals(key)) {
-            nodeArray[index] = null;
+        if(n.getKey().equals(key)) {
+            if(n.next == null) {
+                nodeArray[index] = null;
+            }else{
+                nodeArray[index] = n.next;
+            }
             numAdds--;
         }else{
             try {
                 while (n.next.getKey().equals(key)) {
                     n = n.next;
                 }
-
-                n.next = n.next.next;
-                numAdds--;
             }catch(NullPointerException e) {
                     System.out.println("that item is not in the list");
                     return;
             }
 
+            if(null == n.next.next) {
+                n.next = null;
+            }else {
+                n.next = n.next.next;
+            }
+            numAdds--;
         }
         if(!imResizing) {
             checkCapacity();
@@ -156,12 +164,6 @@ class CustomHashMap<K, V> {
             }
         }
         return true;
-    }
-
-    private boolean resize() {
-        if((numAdds / (double)nodeArray.length) > 0.7) {
-            return true;
-        }else return (numAdds / (double) nodeArray.length) < 0.3;
     }
 
     private int hash(K key) {

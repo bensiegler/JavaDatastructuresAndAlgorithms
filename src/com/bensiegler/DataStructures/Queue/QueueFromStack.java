@@ -1,7 +1,7 @@
-package com.bensiegler.Queue;
+package com.bensiegler.DataStructures.Queue;
 
-import com.bensiegler.Stacks.EmptyStackException;
-import com.bensiegler.Stacks.LinkedListStack;
+import com.bensiegler.DataStructures.Stacks.EmptyStackException;
+import com.bensiegler.DataStructures.Stacks.LinkedListStack;
 
 public class QueueFromStack<T> {
     LinkedListStack<T> stack = new LinkedListStack<>();

@@ -1,4 +1,4 @@
-package com.bensiegler.Stacks;
+package com.bensiegler.DataStructures.Stacks;
 
 //////////////////////////////
 //DEFINITIVELY NOT THREAD SAFE

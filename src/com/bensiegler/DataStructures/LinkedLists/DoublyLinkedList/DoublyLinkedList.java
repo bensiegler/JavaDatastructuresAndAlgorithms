@@ -1,4 +1,4 @@
-package com.bensiegler.LinkedLists.DoublyLinkedList;
+package com.bensiegler.DataStructures.LinkedLists.DoublyLinkedList;
 
 public class DoublyLinkedList<T> {
 

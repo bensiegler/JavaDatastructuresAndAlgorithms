@@ -1,4 +1,4 @@
-package com.bensiegler.HashMap;
+package com.bensiegler.DataStructures.HashMap;
 
 import java.util.HashMap;
 import java.util.Map;

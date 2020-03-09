@@ -1,4 +1,4 @@
-package com.bensiegler.LinkedLists.SinglyLinkedList;
+package com.bensiegler.DataStructures.LinkedLists.SinglyLinkedList;
 //IMPORTANT: THIS FAILS WHEN A LIST IS CREATED AND ALL ITEMS ARE REMOVED AND THEN AN ITEM IS ADDED AGAIN.
 // TO FIX DEAL WITH NULL IN HEAD.
 public class Exercise_02 {

@@ -1,4 +1,4 @@
-package com.bensiegler.Queue;
+package com.bensiegler.DataStructures.Queue;
 
 public class Exercise_02 {
     public static void main(String[] args) {

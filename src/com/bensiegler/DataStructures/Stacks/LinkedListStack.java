@@ -1,4 +1,4 @@
-package com.bensiegler.Stacks;
+package com.bensiegler.DataStructures.Stacks;
 
 public class LinkedListStack<T> {
     private Node<T> head;
