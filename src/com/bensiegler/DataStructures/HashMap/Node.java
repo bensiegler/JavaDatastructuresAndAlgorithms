@@ -1,4 +1,4 @@
-package com.bensiegler.DataStructures.HashMap.Exercise_02;
+package com.bensiegler.DataStructures.HashMap;
 
 class Node<K, V> {
     private K key;

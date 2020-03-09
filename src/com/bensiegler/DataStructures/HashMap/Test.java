@@ -1,4 +1,4 @@
-package com.bensiegler.DataStructures.HashMap.Exercise_02;
+package com.bensiegler.DataStructures.HashMap;
 
 public class Test {
         public static void main(String[] args) {

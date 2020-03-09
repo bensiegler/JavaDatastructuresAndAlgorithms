@@ -1,11 +1,10 @@
-package com.bensiegler.DataStructures.HashMap.Exercise_02;
+package com.bensiegler.DataStructures.HashMap;
 
 class CustomHashMap<K, V> {
     private int numAdds = 0, size = 10;
     private Node[] nodeArray = new Node[10];
     private boolean imResizing;
 
-    //what is supposed to happen if we add two identical keys? does it get the same hash?
     public void put(K key, V value) {
         int index = hash(key);
         numAdds++;
