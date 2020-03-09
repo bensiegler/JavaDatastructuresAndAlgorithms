@@ -10,8 +10,16 @@ public class Exercise_02 {
         hashMap.put(21, 4);
         hashMap.put(1, 5);
         hashMap.put(21, 99);
+        hashMap.put(29, 99);
+        hashMap.put(28, 99);
+        hashMap.put(24, 99);
+        hashMap.put(24, 99);
+        hashMap.put(25, 99);
+        hashMap.put(215, 99);
+        hashMap.put(217, 99);
 
-        System.out.println(hashMap.get(21));
+
+        System.out.println(hashMap.get(217));
 
 //        for(int i = 0; i < 200; i++) {
 //            hashMap.put(i, i + 1);

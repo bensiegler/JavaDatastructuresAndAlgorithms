@@ -4,7 +4,7 @@ package com.bensiegler.Stacks;
 //DEFINITIVELY NOT THREAD SAFE
 //////////////////////////////
 
-public class Exercise_02 {
+public class ArrayStack {
     private static String Class;
 
 
@@ -114,11 +114,7 @@ class CustomStack<T> {
 
 }
 
-class EmptyStackException extends Exception {
 
-    EmptyStackException(String message) {
-        super(message);
-    }
-}
+
 
 
