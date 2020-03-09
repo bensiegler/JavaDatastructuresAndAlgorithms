@@ -19,6 +19,8 @@ public class Exercise_02 {
         hashMap.put(217, 99);
 
 
+        hashMap.delete(217);
+        hashMap.delete(217);
         System.out.println(hashMap.get(217));
 
 //        for(int i = 0; i < 200; i++) {
@@ -114,16 +116,10 @@ class CustomHashMap<K, V> {
 
         Node<K, V> n = (Node<K, V>) nodeArray[index];
 
-        if(null == n.next) {
+        if(null == n.next && n.getKey().equals(key)) {
             nodeArray[index] = null;
             numAdds--;
         }else{
-            if(n.getKey().equals(key)) {
-                nodeArray[index] = n.next;
-                numAdds--;
-                return;
-            }
-
             try {
                 while (n.next.getKey().equals(key)) {
                     n = n.next;
@@ -132,12 +128,8 @@ class CustomHashMap<K, V> {
                 n.next = n.next.next;
                 numAdds--;
             }catch(NullPointerException e) {
-                if(!n.next.getValue().equals(key)) {
                     System.out.println("that item is not in the list");
                     return;
-                }
-                n.next = null;
-                numAdds--;
             }
 
         }
