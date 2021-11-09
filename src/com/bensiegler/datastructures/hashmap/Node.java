@@ -1,6 +1,7 @@
 package com.bensiegler.datastructures.hashmap;
 
 class Node<K, V> {
+
     private K key;
     private V value;
     Node<K, V> next;

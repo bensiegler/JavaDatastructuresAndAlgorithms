@@ -20,13 +20,13 @@ public class MerkleTrie {
         if(vacantIndices.isEmpty()) {
             levels.get(0).put(idCounter, new Leaf(object));
             idCounter++;
-            createTrieStructure();
+//            createTrieStructure();
             return idCounter;
         }else{
             int vacantIndex = vacantIndices.get(0);
             levels.get(0).put(vacantIndex, new Leaf(object));
             vacantIndices.remove(0);
-            createTrieStructure();
+//            createTrieStructure();
             return vacantIndex;
         }
     }
@@ -104,7 +104,8 @@ public class MerkleTrie {
         }
     }
 
-    private void createTrieStructure() {
+    public void createTrieStructure() {
+        long timeStart = System.currentTimeMillis();
         //clear previous structure
         HashMap<Integer, Node> currentLevel = levels.get(0);
         levels = new ArrayList<>();
@@ -135,6 +136,7 @@ public class MerkleTrie {
         }
 
         rootNode = (Branch) levels.get(levels.size() - 1).get(0);
+        System.out.println("Time for trie creation = " + (System.currentTimeMillis() - timeStart));
     }
 
     private int getTrieDepth() {
@@ -146,7 +148,6 @@ public class MerkleTrie {
             if(numNodes % 2 != 0) {
                 numNodes += 1;
             }
-
             numNodes /= 2;
         }
 
