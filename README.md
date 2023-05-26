@@ -1,2 +1,3 @@
 # JavaDatastructures
-java datastructures. and coded custom versions of em.
+A bunch of custom implementations of java datastructures.
+In addition to a couple of tries (trees)
